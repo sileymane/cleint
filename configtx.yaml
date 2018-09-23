@@ -43,8 +43,8 @@ Organizations:
             # encoded in the genesis block in the Application section context
             - Host: peer1.org1.example.com
               Port: 7051
-              
-              ################################################################################
+
+################################################################################
 #
 #   SECTION: Application
 #
@@ -98,17 +98,20 @@ Orderer: &OrdererDefaults
         # NOTE: Use IP:port notation
         Brokers:
             - 127.0.0.1:9092
-              
-         ################################################################################
+
+    # Organizations is the list of orgs which are defined as participants on
+    # the orderer side of the network
+    Organizations:
+
+################################################################################
 #
 #   Profile
 #
 #   - Different configuration profiles may be encoded here to be specified
 #   as parameters to the configtxgen tool
 #
-################################################################################     
-              
-              Profiles:
+################################################################################
+Profiles:
 
     OneOrgOrdererGenesis:
         Orderer:
@@ -124,4 +127,3 @@ Orderer: &OrdererDefaults
         Application:
             <<: *ApplicationDefaults
             Organizations:
-                - *Org1
